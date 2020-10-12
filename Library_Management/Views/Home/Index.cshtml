@@ -1,0 +1,30 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center " style="font-family:'Times New Roman'; font-weight:bold">
+    <h1 class="display-4">Library Management System</h1>
+
+    <a class="btn btn-primary" asp-area="" asp-controller="RoleVMs" asp-action="Index"> Create Role</a>
+    <a class="btn btn-dark" asp-area="" asp-controller="UserSystem" asp-action="Index">View User</a>
+    <a class="btn btn-dark" asp-area="" asp-controller="Book" asp-action="GetAllBooks">View Books</a>
+    <a class="btn btn-dark" asp-area="" asp-controller="Book" asp-action="AddNewBook">Add New Book</a>
+
+</div>
+
+
+
+
+
+
+
+
+@*@section scripts{
+        <script>$(document).ready(function () {
+                alert("document is ready");
+            })</script>
+    }*@
+

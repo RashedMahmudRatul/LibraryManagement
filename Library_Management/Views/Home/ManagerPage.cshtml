@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Home/users/_Layout.cshtml";
+}
+
+
+
+@{
+    ViewData["Title"] = " Welcome Manager";
+}
+
+<div class="text-center " style="font-family:'Times New Roman'; font-weight:bold">
+    <h1 class="display-4">Library Management System</h1>
+
+
+    <a class="btn btn-dark" asp-area="" asp-controller="UserSystem" asp-action="Index">View User</a>
+    <a class="btn btn-dark" asp-area="" asp-controller="Book" asp-action="AddNewBook">Add New Book</a>
+    <a class="btn btn-dark" asp-area="" asp-controller="Book" asp-action="GetAllBooks">View Books</a>
+
+</div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Library_Management.Areas.Identity.Data.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>View All Users</h1>
+
+<form class="form-inline">
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
+</form>
+<table id="usertbl" class="table table-bordered table-hover  table-striped " style="font-family:'Times New Roman'"  >
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                    <a asp-action="Edit" class="btn btn-primary " asp-route-id="@item.Id">Edit</a>|
+                    <a asp-action="Details" class="btn btn-success" asp-route-id="@item.Id">Details</a>|
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>|
+                    <a asp-action="AssignRole" class="btn btn-dark" asp-route-id="@item.Id">AssignRole</a>
+
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+    $(document).ready(function () {
+        $('#usertbl').DataTable();
+    });
+    </script>
+}

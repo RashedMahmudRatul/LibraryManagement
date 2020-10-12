@@ -1,0 +1,66 @@
+﻿@*@using Library_Management.Models*@
+@*@model IEnumerable< BookModel >*@
+
+@model IEnumerable<Library_Management.Models.BookModel>
+
+@{
+    ViewData["Title"] = "All books";
+}
+@{
+    Layout = "_layout";
+}
+
+   
+
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="display-4">All Books</h3>
+                <a asp-action="AddNewBook" class="btn btn-primary">Create New</a>
+
+            </div>
+        </div>
+<br />
+
+  
+
+<div class="container">
+    @*<form asp-action="SearchBook" asp-controller="book" method="post">
+        
+        <input type="text" name="sname" value="" />
+        <button type="submit" class="btn btn-success">Search</button>
+    </form>*@
+
+    <div class="row" id="usertbl">
+
+        @foreach (var book in Model)
+        {
+            
+
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="@book.CoverImageUrl" class="img-thumbnail " style="height:150px; Width:auto" />
+                    <div class="card-body">
+                        <h3 class="card-title">@book.Title</h3>
+                        <p class="card-text">@book.Description</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+
+                                <a asp-controller="book" asp-action="getbook" asp-route-id=" @book.Id" class="btn btn-sm btn-outline-secondary">View details</a>
+                                <a asp-controller="book" asp-action="DeleteConf" asp-route-id=" @book.Id" class="btn btn-sm btn-outline-danger"
+                                   onclick="return confirm('Are U sure???')">Delete</a>
+
+                                @*<a asp-controller="book" asp-action="getbook"  asp-route-id=" @book.Id" asp-fragment="similarBooks" class="btn btn-sm btn-outline-secondary">View details</a>*@
+                                @*<a asp-controller="book" asp-action="getbook" asp-route-id =" @book.Id " asp-route-bookname=" @book.Title" class="btn btn-sm btn-outline-secondary">View details</a>*@
+
+
+                            </div>
+                            <small class="text-muted">@book.Author</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
